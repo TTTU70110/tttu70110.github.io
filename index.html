@@ -1,139 +1,52 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>개인정보 처리방침 (Privacy Policy) - StudyDrive & FogRun</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>애플리케이션 공식 안내 및 개인정보 처리방침 - StudyDrive & FogRun</title>
+  <link rel="canonical" href="https://tttu70110.github.io/">
+  <meta name="robots" content="index, follow">
   <style>
-    :root {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --border: #e2e8f0;
-      --primary: #4f46e5;
-      --primary-light: #eef2ff;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-    .container {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 32px 20px 64px;
-    }
-    .header-box {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-    .header-box h1 {
-      font-size: 1.6rem;
-      margin: 0 0 8px;
-    }
-    .header-box p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin: 0;
-    }
-    /* 앱 선택 탭 버튼 */
-    .tab-bar {
-      display: flex;
-      gap: 12px;
-      background: var(--card);
-      padding: 8px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      margin-bottom: 24px;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-    }
-    .tab-btn {
-      flex: 1;
-      padding: 14px 16px;
-      font-size: 1rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      background: transparent;
-      color: var(--muted);
-      transition: all 0.2s ease;
-    }
-    .tab-btn.active {
-      background: var(--primary);
-      color: #ffffff;
-      box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
-    }
-    .policy-card {
-      display: none;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px 28px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
-    }
-    .policy-card.active {
-      display: block;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 8px;
-    }
-    h2 {
-      margin-top: 0;
-      font-size: 1.45rem;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 12px;
-    }
-    h3 {
-      margin-top: 26px;
-      font-size: 1.1rem;
-      color: var(--primary);
-    }
-    ul, ol {
-      padding-left: 20px;
-      color: var(--muted);
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0b0d14; color: #e6edf3; margin: 0; padding: 40px 20px; line-height: 1.6; }
+    .container { max-width: 760px; margin: 0 auto; }
+    .header { text-align: center; margin-bottom: 32px; }
+    .header h1 { color: #ffffff; font-size: 26px; margin-bottom: 8px; }
+    .header p { color: #8b949e; font-size: 14px; margin: 0; }
+    .tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; }
+    .tab-btn { padding: 10px 22px; border-radius: 10px; border: 1px solid #30363d; background: #161b22; color: #c9d1d9; font-weight: 700; cursor: pointer; font-size: 14px; }
+    .tab-btn.active { background: #00e5ff; color: #000000; border-color: #00e5ff; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 16px; padding: 28px; margin-bottom: 24px; }
+    .badge { display: inline-block; padding: 4px 10px; border-radius: 6px; background: rgba(0, 229, 255, 0.15); color: #00e5ff; font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+    h2 { color: #ffffff; font-size: 20px; margin-top: 4px; }
+    h3 { color: #58a6ff; font-size: 16px; margin-top: 22px; }
+    ul { padding-left: 20px; }
     li { margin-bottom: 6px; }
-    p { color: var(--muted); }
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 36px 0;
-    }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: #58a6ff; }
+    hr { border: 0; border-top: 1px solid #30363d; margin: 24px 0; }
+    .footer { text-align: center; font-size: 12px; color: #8b949e; margin-top: 32px; }
   </style>
+  <script>
+    function showApp(appName) {
+      document.getElementById('studydrive-section').style.display = (appName === 'studydrive') ? 'block' : 'none';
+      document.getElementById('fogrun-section').style.display = (appName === 'fogrun') ? 'block' : 'none';
+      document.getElementById('btn-studydrive').classList.toggle('active', appName === 'studydrive');
+      document.getElementById('btn-fogrun').classList.toggle('active', appName === 'fogrun');
+    }
+  </script>
 </head>
 <body>
   <div class="container">
-    <div class="header-box">
+    <div class="header">
       <h1>애플리케이션 개인정보 처리방침</h1>
       <p>확인하실 앱을 선택해 주세요 (Select an app to view its Privacy Policy)</p>
     </div>
 
-    <!-- 상단 앱 전환 버튼 -->
-    <div class="tab-bar">
-      <button id="btn-studydrive" class="tab-btn active" onclick="selectApp('studydrive')">
-        🚗 StudyDrive
-      </button>
-      <button id="btn-fogrun" class="tab-btn" onclick="selectApp('fogrun')">
-        🏃‍♂️ FogRun
-      </button>
+    <div class="tabs">
+      <button id="btn-studydrive" class="tab-btn active" onclick="showApp('studydrive')">StudyDrive</button>
+      <button id="btn-fogrun" class="tab-btn" onclick="showApp('fogrun')">FogRun</button>
     </div>
 
-    <!-- 1. StudyDrive 개인정보 처리방침 영역 -->
-    <div id="policy-studydrive" class="policy-card active">
+    <div id="studydrive-section" class="card">
       <span class="badge">StudyDrive</span>
       <h2>StudyDrive 개인정보 처리방침 (Privacy Policy)</h2>
       <p><strong>시행일 (Effective Date):</strong> 2026년 11월 3일</p>
@@ -151,7 +64,7 @@
       <ul>
         <li><strong>수집 항목:</strong> 기기 식별자(광고 ID / IDFA, IDFV), IP 기반의 대략적인 위치 정보, 광고 노출·클릭 등 상호작용 데이터, 충돌 및 성능 진단 데이터</li>
         <li><strong>이용 목적:</strong> 맞춤형 또는 비맞춤형 광고 제공, 광고 성과 분석 및 서비스 안정성 개선</li>
-        <li><strong>제3자 방침:</strong> <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 처리방침</a></li>
+        <li><strong>제3자 방침:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보 처리방침</a></li>
       </ul>
 
       <h3>3. 앱 추적 투명성(ATT) 및 사용자 선택권</h3>
@@ -163,19 +76,17 @@
         <li><strong>이메일:</strong> kspc369@gmail.com</li>
       </ul>
 
-      <hr />
+      <hr>
 
       <h2>English Version (StudyDrive)</h2>
-      <p><strong>StudyDrive</strong> does not require account registration and stores all focus timer logs locally on your device. Map routes are simulated virtual routes and do not track your real-world GPS location. We use <strong>Google AdMob</strong> to serve ads, which may collect device identifiers (IDFA/IDFV), coarse location, usage data, and crash diagnostics in accordance with <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+      <p><strong>StudyDrive</strong> does not require account registration and stores all focus timer logs locally on your device. Map routes are simulated virtual routes and do not track your real-world GPS location. We use <strong>Google AdMob</strong> to serve ads, which may collect device identifiers (IDFA/IDFV), coarse location, usage data, and crash diagnostics in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
     </div>
 
-    <!-- 2. FogRun 개인정보 처리방침 영역 -->
-    <div id="policy-fogrun" class="policy-card">
+    <div id="fogrun-section" class="card" style="display: none;">
       <span class="badge">FogRun</span>
       <h2>FogRun 개인정보 처리방침 (Privacy Policy)</h2>
       <p><strong>시행일 (Effective Date):</strong> 2026년 11월 3일</p>
 
-      <!-- 기존 https://tttu70110.github.io/ 에 있던 FogRun 개인정보 처리방침 내용을 아래에 넣으시면 됩니다 -->
       <h3>1. 개인정보의 처리 목적 및 수집 항목</h3>
       <p><strong>FogRun</strong>(이하 "앱")은 사용자의 러닝·이동 경로 탐색 및 지도 안개 걷기(Fog of War) 기능을 제공하기 위해 필요한 최소한의 권한만을 사용합니다.</p>
       <ul>
@@ -189,41 +100,18 @@
       <h3>3. 문의처 (Contact Us)</h3>
       <ul>
         <li><strong>개발자:</strong> 김경민 (Gyeongmin Kim)</li>
-        <li><strong>이메일:</strong> tttu70110@gmail.com</li>
+        <li><strong>이메일:</strong> kspc369@gmail.com</li>
       </ul>
 
-      <hr />
+      <hr>
 
       <h2>English Version (FogRun)</h2>
       <p><strong>FogRun</strong> uses your device's location services (GPS) solely to track your movement and uncover the map fog on your device. Your location history is stored locally on your device and is never sold or transmitted to external servers.</p>
     </div>
+
+    <div class="footer">
+      <p>© 2026 Gyeongmin Kim. All rights reserved. | <a href="/app-ads.txt">app-ads.txt</a></p>
+    </div>
   </div>
-
-  <script>
-    function selectApp(appName) {
-      const isFogRun = (appName === 'fogrun');
-
-      document.getElementById('btn-studydrive').classList.toggle('active', !isFogRun);
-      document.getElementById('btn-fogrun').classList.toggle('active', isFogRun);
-
-      document.getElementById('policy-studydrive').classList.toggle('active', !isFogRun);
-      document.getElementById('policy-fogrun').classList.toggle('active', isFogRun);
-
-      // 주소창 URL도 깔끔하게 업데이트 (?app=fogrun 또는 ?app=studydrive)
-      const newUrl = window.location.pathname + '?app=' + (isFogRun ? 'fogrun' : 'studydrive');
-      window.history.replaceState({}, '', newUrl);
-    }
-
-    // 페이지 접속 시 URL 파라미터(?app=fogrun) 또는 해시(#fogrun)를 확인해 해당 탭 자동 오픈
-    window.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const appParam = (params.get('app') || window.location.hash.replace('#', '')).toLowerCase();
-      if (appParam === 'fogrun') {
-        selectApp('fogrun');
-      } else if (appParam === 'studydrive') {
-        selectApp('studydrive');
-      }
-    });
-  </script>
 </body>
 </html>
