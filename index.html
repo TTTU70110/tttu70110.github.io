@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>애플리케이션 공식 안내 및 개인정보 처리방침 - StudyDrive & FogRun</title>
+  <title>애플리케이션 공식 안내 및 개인정보 처리방침 - StudyDrive, FogRun & MOMENT</title>
   <link rel="canonical" href="https://tttu70110.github.io/">
   <meta name="robots" content="index, follow">
   <style>
@@ -12,8 +12,8 @@
     .header { text-align: center; margin-bottom: 32px; }
     .header h1 { color: #ffffff; font-size: 26px; margin-bottom: 8px; }
     .header p { color: #8b949e; font-size: 14px; margin: 0; }
-    .tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; }
-    .tab-btn { padding: 10px 22px; border-radius: 10px; border: 1px solid #30363d; background: #161b22; color: #c9d1d9; font-weight: 700; cursor: pointer; font-size: 14px; }
+    .tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+    .tab-btn { padding: 10px 22px; border-radius: 10px; border: 1px solid #30363d; background: #161b22; color: #c9d1d9; font-weight: 700; cursor: pointer; font-size: 14px; transition: all 0.15s ease; }
     .tab-btn.active { background: #00e5ff; color: #000000; border-color: #00e5ff; }
     .card { background: #161b22; border: 1px solid #30363d; border-radius: 16px; padding: 28px; margin-bottom: 24px; }
     .badge { display: inline-block; padding: 4px 10px; border-radius: 6px; background: rgba(0, 229, 255, 0.15); color: #00e5ff; font-size: 12px; font-weight: 700; margin-bottom: 8px; }
@@ -27,11 +27,24 @@
   </style>
   <script>
     function showApp(appName) {
-      document.getElementById('studydrive-section').style.display = (appName === 'studydrive') ? 'block' : 'none';
-      document.getElementById('fogrun-section').style.display = (appName === 'fogrun') ? 'block' : 'none';
-      document.getElementById('btn-studydrive').classList.toggle('active', appName === 'studydrive');
-      document.getElementById('btn-fogrun').classList.toggle('active', appName === 'fogrun');
+      const apps = ['studydrive', 'fogrun', 'moment'];
+      apps.forEach(app => {
+        const section = document.getElementById(app + '-section');
+        const btn = document.getElementById('btn-' + app);
+        if (section) section.style.display = (app === appName) ? 'block' : 'none';
+        if (btn) btn.classList.toggle('active', app === appName);
+      });
     }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const params = new URLSearchParams(window.location.search);
+      const queryApp = params.get('app')?.toLowerCase();
+      const target = hash || queryApp;
+      if (['studydrive', 'fogrun', 'moment'].includes(target)) {
+        showApp(target);
+      }
+    });
   </script>
 </head>
 <body>
@@ -44,8 +57,10 @@
     <div class="tabs">
       <button id="btn-studydrive" class="tab-btn active" onclick="showApp('studydrive')">StudyDrive</button>
       <button id="btn-fogrun" class="tab-btn" onclick="showApp('fogrun')">FogRun</button>
+      <button id="btn-moment" class="tab-btn" onclick="showApp('moment')">MOMENT</button>
     </div>
 
+    <!-- 1. StudyDrive 섹션 -->
     <div id="studydrive-section" class="card">
       <span class="badge">StudyDrive</span>
       <h2>StudyDrive 개인정보 처리방침 (Privacy Policy)</h2>
@@ -82,6 +97,7 @@
       <p><strong>StudyDrive</strong> does not require account registration and stores all focus timer logs locally on your device. Map routes are simulated virtual routes and do not track your real-world GPS location. We use <strong>Google AdMob</strong> to serve ads, which may collect device identifiers (IDFA/IDFV), coarse location, usage data, and crash diagnostics in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
     </div>
 
+    <!-- 2. FogRun 섹션 -->
     <div id="fogrun-section" class="card" style="display: none;">
       <span class="badge">FogRun</span>
       <h2>FogRun 개인정보 처리방침 (Privacy Policy)</h2>
@@ -107,6 +123,43 @@
 
       <h2>English Version (FogRun)</h2>
       <p><strong>FogRun</strong> uses your device's location services (GPS) solely to track your movement and uncover the map fog on your device. Your location history is stored locally on your device and is never sold or transmitted to external servers.</p>
+    </div>
+
+    <!-- 3. MOMENT 섹션 -->
+    <div id="moment-section" class="card" style="display: none;">
+      <span class="badge">MOMENT</span>
+      <h2>MOMENT 개인정보 처리방침 (Privacy Policy)</h2>
+      <p><strong>시행일 (Effective Date):</strong> 2026년 11월 11일</p>
+
+      <h3>1. 직접 수집 및 기기 내 저장 데이터 (100% 온디바이스 처리)</h3>
+      <p><strong>MOMENT</strong>(이하 "앱")는 별도의 회원가입이나 자체 서버 없이 작동하는 온디바이스 애플리케이션입니다. 사용자가 촬영한 사진과 기록은 개발자의 외부 서버로 전송되지 않으며 오직 사용자의 기기 내부(<code>SwiftData</code> 및 로컬 문서 저장소)에만 보관됩니다.</p>
+      <ul>
+        <li><strong>카메라 (Camera):</strong> 하루 한 장의 4:3 풍경 사진 촬영, 대표 색상(3가지) 추출 및 카메라 렌즈 노출 메타데이터(EXIF) 스탬프 각인을 위해 사용됩니다.</li>
+        <li><strong>위치 정보 (Location When In Use):</strong> 촬영 지점의 동네 이름, 현재 날씨·시야·일몰 시간 조회(Open-Meteo API), 나침반 방위 및 해발고도 스탬프 기록, 앱 내 '발자취 지도' 핀 표시를 위해 앱 사용 중에만 접근합니다.</li>
+        <li><strong>사진첩 (Photo Library - Add Only):</strong> 완성된 폴라로이드 인화지 카드와 원본 사진을 사용자의 기기 사진첩에 저장할 때만 사용됩니다.</li>
+      </ul>
+
+      <h3>2. 제3자 서비스 및 광고 SDK를 통한 자동 수집 정보</h3>
+      <p>본 앱은 무료 서비스 유지를 위해 폴라로이드 화면에서 <strong>Google AdMob(Google Mobile Ads SDK)</strong> 배너 광고를 제공합니다.</p>
+      <ul>
+        <li><strong>수집 항목:</strong> 기기 식별자(광고 ID / IDFA, IDFV), 대략적인 위치 정보, 광고 노출·클릭 등 상호작용 데이터, 앱 충돌 및 성능 진단 데이터</li>
+        <li><strong>이용 목적:</strong> 제3자 광고 제공(Third-Party Advertising), 광고 성과 분석 및 서비스 안정성 개선</li>
+        <li><strong>제3자 방침:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보 처리방침</a></li>
+      </ul>
+
+      <h3>3. 데이터의 보관, 백업 및 파기</h3>
+      <p>모든 사진과 일별 기록은 사용자의 기기 내부에만 저장됩니다. 사용자가 설정 메뉴의 '백업 파일 내보내기'를 실행할 경우 사용자가 직접 지정한 경로(iCloud Drive 또는 파일 앱)에 백업 파일이 생성되며, 앱을 삭제할 경우 기기 내 모든 데이터는 즉시 영구 파기됩니다.</p>
+
+      <h3>4. 문의처 (Contact Us)</h3>
+      <ul>
+        <li><strong>개발자:</strong> 김경민 (Gyeongmin Kim)</li>
+        <li><strong>이메일:</strong> kspc369@gmail.com</li>
+      </ul>
+
+      <hr>
+
+      <h2>English Version (MOMENT)</h2>
+      <p><strong>MOMENT</strong> operates as a 100% on-device photo journal without user registration or external developer servers. All captured 4:3 photos, color palettes, captions, and location stamps are stored exclusively on your local device. Camera access is used solely to take daily scenery photos, Location access is used to stamp neighborhood names, weather, compass heading, and display pins on the in-app footprint map, and Photo Library access is used to save rendered Polaroid cards. We use <strong>Google AdMob</strong> to display banner ads, which may collect device identifiers (IDFA/IDFV), coarse location, usage data, and crash diagnostics in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
     </div>
 
     <div class="footer">
